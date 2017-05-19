@@ -1,0 +1,71 @@
+<link rel="import" href="../../lib/polymer/polymer.html">
+<link rel="import" href="../../elements/onion-app/onion-app.html">
+
+<dom-module id="demo">
+	<style>
+
+	</style>
+
+	<template>
+		<onion-app app-name="To-Do List" toolbar-background="#656D78"  background="#434A54">
+			<onion-app-toolbar page-id="home">
+
+			</onion-app-toolbar>
+
+			<onion-app-body page-id="home">
+
+			</onion-app-body>
+
+			<onion-app-toolbar page-id="home-list">
+				<div class="horizontal layout center">
+					<button on-click="_gotoWorkList">Work List</button>
+					<button on-click="_goHome">Go Home</button>
+				</div>
+			</onion-app-toolbar>
+
+			<onion-app-body page-id="home-list">
+				<!-- copy the element here -->
+			</onion-app-body>
+
+			<onion-app-toolbar page-id="work-list">
+				<div class="horizontal layout center">
+					<button on-click="_gotoHomeList">Home List</button>
+					<button on-click="_goHome">Go Home</button>
+				</div>
+			</onion-app-toolbar>
+
+			<onion-app-body page-id="work-list">
+				<!-- copy the element here -->
+			</onion-app-body>
+		</onion-app>
+	</template>
+
+	<script>
+		'use strict';
+
+		(function () {
+			var _gotoHomeList = function () {
+				this.switchPage('home-list');
+			};
+
+			var _gotoWorkList = function () {
+				this.switchPage('work-list');
+			};
+
+			var _goHome = function () {
+				this.switchPageHome();
+			}
+
+			Polymer({
+				is: 'demo',
+				behaviors: [Onion.AppBehavior],
+				properties: {
+
+				},
+				_goHome: _goHome;
+				_gotoWorkList: _gotoWorkList;
+				_gotoHomeList: _gotoHomeList;
+			});
+		})();
+	</script>
+</dom-module>
